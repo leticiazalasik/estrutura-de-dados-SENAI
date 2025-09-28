@@ -23,11 +23,22 @@ void libera_cliente(Cliente *c) {
     free(c);
 }
 
-void imprime_cliente(const Cliente *c) {
-    printf("Nome: %s\n", c->nome);
-    printf("Bairro: %s\n", c->bairro);
-    printf("Pessoas na residência: %d\n", c->pessoas);
-    printf("Tem crianças menores de cinco anos: %d\n", c->tem_criancas);
-    printf("Renda familiar: R$ %.2lf\n", c->renda);
+const char* get_nome(const Cliente* c) {
+    return c->nome;
+}
 
+const char* get_bairro(const Cliente* c) {
+    return c->bairro;
+}
+
+int get_pessoas(const Cliente* c) {
+    return c->pessoas;
+}
+
+int get_criancas(const Cliente* c) {
+    return c->tem_criancas;
+}
+
+double get_renda(const Cliente* c) {
+    return c->renda;
 }
