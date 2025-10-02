@@ -4,9 +4,7 @@
 #include "nodo.h"
 #include "cliente.h"
 
-typedef struct Lista {
-    Nodo *inicio;
-} Lista;
+typedef struct Lista_ Lista;
 
 Lista* cria_lista();
 void insere_lista(Lista* l, void* data);

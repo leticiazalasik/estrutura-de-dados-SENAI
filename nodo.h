@@ -3,10 +3,7 @@
 
 #include "cliente.h"
 
-typedef struct NODO {
-    Cliente *cliente;
-    struct NODO *proximo;
-} Nodo;
+typedef struct Nodo_ Nodo;
 
 
 Nodo* cria_nodo(Cliente *C);

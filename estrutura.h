@@ -6,13 +6,7 @@
 
 #define HASH_SIZE 100
 
-typedef struct Estrutura {
-    Lista *hash_nome[HASH_SIZE];        
-    Lista *hash_bairro[HASH_SIZE];      
-    Lista *lista_pessoas[6];            
-    Lista *lista_criancas[2];           
-    Lista *lista_renda[4];              
-} Estrutura;
+typedef struct Estrutura_ Estrutura;
 
 Estrutura* cria_estrutura();
 void insere_cliente(Estrutura* e, int criterio, Cliente* cliente);

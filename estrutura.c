@@ -3,6 +3,14 @@
 #include <string.h>
 #include "estrutura.h"
 
+typedef struct Estrutura_ {
+    Lista *hash_nome[HASH_SIZE];        
+    Lista *hash_bairro[HASH_SIZE];      
+    Lista *lista_pessoas[6];            
+    Lista *lista_criancas[2];           
+    Lista *lista_renda[4];              
+} Estrutura;
+
 Estrutura* cria_estrutura() {
     Estrutura *nova = (Estrutura*) malloc(sizeof(Estrutura));
     if (nova == NULL) return NULL;

@@ -3,6 +3,11 @@
 #include "nodo.h"
 #include "cliente.h"
 
+typedef struct Nodo_ {
+    Cliente *cliente;
+    struct NODO *proximo;
+} Nodo;
+
 Nodo* cria_nodo(Cliente *c){
     Nodo *novo = (Nodo*) malloc(sizeof(Nodo));
     if (novo == NULL) return NULL;

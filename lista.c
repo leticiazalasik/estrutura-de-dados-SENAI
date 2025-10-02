@@ -3,6 +3,10 @@
 #include "lista.h"
 #include "cliente.h"
 
+typedef struct Lista {
+    Nodo *inicio;
+} Lista;
+
 Lista* cria_lista(){
     Lista *nova = (Lista*) malloc(sizeof(Lista));
     if (nova == NULL) return NULL;

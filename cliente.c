@@ -3,19 +3,28 @@
 #include <string.h>
 #include "cliente.h"
 
+typedef struct Cliente_{     
+    char nome[40];     
+    char bairro[40];     
+    int pessoas;     
+    int tem_criancas;     
+    double renda; 
+} Cliente; 
+
+
 Cliente* cria_cliente(const char *nome, const char *bairro, int pessoas, int tem_criancas, double renda) {
-Cliente *novo = (Cliente*) malloc(sizeof(Cliente));
-
-if (novo == NULL){
-    return NULL;
-}
-
-strcpy(novo ->nome, nome);
-strcpy(novo->bairro, bairro);
-novo->pessoas = pessoas; 
-novo->tem_criancas = tem_criancas;
-novo->renda = renda;
-
+    Cliente *novo = (Cliente*) malloc(sizeof(Cliente));
+    
+    if (novo == NULL){
+        return NULL;
+    }
+    
+    strcpy(novo ->nome, nome);
+    strcpy(novo->bairro, bairro);
+    novo->pessoas = pessoas; 
+    novo->tem_criancas = tem_criancas;
+    novo->renda = renda;
+    
     return novo;
 }
 
