@@ -10,6 +10,7 @@ Nodo* cria_nodo(Cliente *C);
 void libera_nodo(Nodo *n);
 void imprime_nodo(const Nodo *n); 
 void* get_data(Nodo* n);
-Nodo* get_next(Nodo* n);    
+Nodo* get_next(Nodo* n);  
+void set_next(Nodo* n, Nodo* next);  
 
 #endif

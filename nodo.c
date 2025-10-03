@@ -5,7 +5,7 @@
 
 typedef struct Nodo_ {
     Cliente *cliente;
-    struct NODO *proximo;
+    struct Nodo_ *proximo;
 } Nodo;
 
 Nodo* cria_nodo(Cliente *c){
@@ -36,4 +36,8 @@ void* get_data(Nodo* n) {
 Nodo* get_next(Nodo* n) {
     if (n == NULL) return NULL;
     return n->proximo;
+}
+
+void set_next(Nodo* n,Nodo* next){
+    n->proximo = next;
 }

@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include "lista.h"
 #include "cliente.h"
+#include "nodo.h"
 
-typedef struct Lista {
+typedef struct Lista_ {
     Nodo *inicio;
 } Lista;
 
@@ -20,7 +21,7 @@ void insere_lista(Lista* l, void* data) {
     Nodo* novo_nodo = cria_nodo(data);
     if (novo_nodo == NULL) return;
     
-    novo_nodo->proximo = l->inicio;
+    set_next(novo_nodo,get_inicio(l));
     l->inicio = novo_nodo;
 }
 
@@ -28,25 +29,26 @@ int get_quantidade(Lista* l) {
     if (l == NULL) return 0;
     
     int count = 0;
-    Nodo* atual = l->inicio;
+    Nodo* atual = get_inicio(l);
     while (atual != NULL) {
         count++;
-        atual = atual->proximo;
+        atual = get_next(atual);
     }
     return count;
 }
 
-Nodo* get_inicio(Lista* l) {
+Nodo* get_inicio(const Lista* l) {
     if (l == NULL) return NULL;
     return l->inicio;
 }
 
+
 void libera_lista(Lista *l){
     if (l == NULL) return;
     
-    Nodo *atual = l->inicio;
+    Nodo *atual = get_inicio(l);
     while (atual != NULL) {
-        Nodo *proximo = atual->proximo;
+        Nodo *proximo = get_next(atual);
         libera_nodo(atual);
         atual = proximo; 
     }
@@ -56,9 +58,9 @@ void libera_lista(Lista *l){
 void imprime_lista(const Lista *l) {
     if (l == NULL) return;
     
-    Nodo *atual = l->inicio;
+    Nodo *atual = get_inicio(l);
     while (atual != NULL) {
         imprime(get_data(atual));
-        atual = atual->proximo; 
+        atual = get_next(atual); 
     } 
 }
