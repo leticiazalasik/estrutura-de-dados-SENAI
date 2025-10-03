@@ -19,6 +19,7 @@ Nodo* cria_nodo(Cliente *c){
 
 void libera_nodo(Nodo *n){
     if (n == NULL) return;
+    decrementa_ref(get_data(n));
     free(n);
 }
 

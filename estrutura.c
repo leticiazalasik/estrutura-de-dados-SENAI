@@ -62,6 +62,7 @@ void insere_cliente(Estrutura* e, int criterio, Cliente* cliente) {
                 e->hash_nome[indice] = cria_lista();
             }
             insere_lista(e->hash_nome[indice], cliente);
+            incrementa_ref(cliente);
             break;
         }
         case 2: {
@@ -70,6 +71,7 @@ void insere_cliente(Estrutura* e, int criterio, Cliente* cliente) {
                 e->hash_bairro[indice] = cria_lista();
             }
             insere_lista(e->hash_bairro[indice], cliente);
+            incrementa_ref(cliente);
             break;
         }
         case 3: {
@@ -80,6 +82,7 @@ void insere_cliente(Estrutura* e, int criterio, Cliente* cliente) {
                     e->lista_pessoas[pessoas] = cria_lista();
                 }
                 insere_lista(e->lista_pessoas[pessoas], cliente);
+                incrementa_ref(cliente);
             }
             break;
         }
@@ -90,6 +93,7 @@ void insere_cliente(Estrutura* e, int criterio, Cliente* cliente) {
                 e->lista_criancas[indice] = cria_lista();
             }
             insere_lista(e->lista_criancas[indice], cliente);
+            incrementa_ref(cliente);
             break;
         }
         case 5: {
@@ -98,6 +102,7 @@ void insere_cliente(Estrutura* e, int criterio, Cliente* cliente) {
                 e->lista_renda[faixa] = cria_lista();
             }
             insere_lista(e->lista_renda[faixa], cliente);
+            incrementa_ref(cliente);
             break;
         }
     }

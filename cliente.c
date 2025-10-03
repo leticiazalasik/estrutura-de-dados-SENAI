@@ -9,6 +9,7 @@ typedef struct Cliente_{
     int pessoas;     
     int tem_criancas;     
     double renda; 
+    int ref_count;
 } Cliente; 
 
 
@@ -24,6 +25,7 @@ Cliente* cria_cliente(const char *nome, const char *bairro, int pessoas, int tem
     novo->pessoas = pessoas; 
     novo->tem_criancas = tem_criancas;
     novo->renda = renda;
+    novo->ref_count = 0;
     
     return novo;
 }
@@ -50,4 +52,17 @@ int get_criancas(const Cliente* c) {
 
 double get_renda(const Cliente* c) {
     return c->renda;
+}
+
+void incrementa_ref(Cliente *c) {
+    if (c != NULL) c->ref_count++;
+}
+
+void decrementa_ref(Cliente *c) {
+    if (c != NULL) {
+        c->ref_count--;
+        if (c->ref_count <= 0) {
+            libera_cliente(c);
+        }
+    }
 }

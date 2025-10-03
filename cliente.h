@@ -13,4 +13,7 @@ int get_pessoas(const Cliente* c);
 int get_criancas(const Cliente* c); 
 double get_renda(const Cliente* c);  
 
+void incrementa_ref(Cliente* c);
+void decrementa_ref(Cliente* c);
+
 #endif
